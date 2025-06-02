@@ -16,3 +16,15 @@ jobs:
         run: |
           ls ${{ github.workspace }}
       - run: echo "🍏 This job's status is ${{ job.status }}."
+
+  Building-Testing-App:
+    runs-on: ubuntu-latest
+    steps:
+      - run : echo "chek out repository code"
+      - name: Check out repository code
+        uses: actions/checkout@v4
+      - run : echo "run building"
+      - run : npm install && npm build
+      - run : echo "run testing"
+      - run : npm run e2e:headless
+      - run: echo "🍏 This job's status is ${{ job.status }}."
