@@ -24,7 +24,7 @@ jobs:
       - name: Check out repository code
         uses: actions/checkout@v4
       - run : echo "run building"
-      - run : npm install && npm build
+      - run : npm install && npm run build
       - run : echo "run testing"
       - run : npm run e2e:headless
       - run: echo "🍏 This job's status is ${{ job.status }}."
