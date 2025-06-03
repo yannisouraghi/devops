@@ -43,8 +43,6 @@ jobs:
   Deploy: 
     runs-on: ubuntu-latest
     steps:
-      - name: Check out repository code
-        uses: actions/checkout@v4
       - name: Execute remote SSH commands using password
         uses: appleboy/ssh-action@v1
         with:
@@ -52,6 +50,7 @@ jobs:
           key: ${{secrets.SSH_KEY}}
           username: ${{secrets.SSH_USER}}
           script:
+            cd devops
             git pull origin main
             npm install && npm run build
             pm2 restart all
