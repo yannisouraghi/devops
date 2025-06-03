@@ -39,3 +39,19 @@ jobs:
           name: code-coverage-report
           path: output/test/code-coverage.html
       - run: echo "🍏 This job's status is ${{ job.status }}."
+
+  Deploy: 
+    runs-on: ubuntu-latest
+    steps:
+       - name: Execute remote SSH commands using password
+         uses: appleboy/ssh-action@v1
+         with:
+          host: ${{secrets.SSH_HOST}}
+          key: ${{secrets.SSH_KEY}}
+          user: ${{secrets.SSH_USER}}
+       - name : Pull from github
+         uses: actions/checkout@v4
+       - run: | 
+          git pull origin main
+       - run : echo "run building"
+       - run : npm install && npm run build
