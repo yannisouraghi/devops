@@ -48,7 +48,7 @@ jobs:
          with:
           host: ${{secrets.SSH_HOST}}
           key: ${{secrets.SSH_KEY}}
-          user: ${{secrets.SSH_USER}}
+          username: ${{secrets.SSH_USER}}
        - name : Pull from github
          uses: actions/checkout@v4
        - run: | 
