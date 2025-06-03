@@ -43,9 +43,11 @@ jobs:
   Deploy: 
     runs-on: ubuntu-latest
     steps:
-       - name: Execute remote SSH commands using password
-         uses: appleboy/ssh-action@v1
-         with:
+      - name: Check out repository code
+        uses: actions/checkout@v4
+      - name: Execute remote SSH commands using password
+        uses: appleboy/ssh-action@v1
+        with:
           host: ${{secrets.SSH_HOST}}
           key: ${{secrets.SSH_KEY}}
           username: ${{secrets.SSH_USER}}
