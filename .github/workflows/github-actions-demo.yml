@@ -53,4 +53,4 @@ jobs:
             cd devops
             docker rm -f devopscontainer
             docker pull ghcr.io/yannisouraghi/devops/devops:latest
-            docker run -d -p 3000:3000 --name devopscontainer ghcr.io/yannisouraghi/devops/devops:latest 
+            docker run -d -p 3000:3000 --name devopscontainer ghcr.io/yannisouraghi/devops/devops:latest   
