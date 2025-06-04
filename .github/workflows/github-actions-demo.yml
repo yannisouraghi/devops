@@ -40,7 +40,7 @@ jobs:
           path: output/test/code-coverage.html
       - run: echo "🍏 This job's status is ${{ job.status }}."
 
-  Login & Build Docker :
+  Login and Build Docker :
     runs-on: ubuntu-latest
     steps:
         - name: Login to GitHub Container Registry
