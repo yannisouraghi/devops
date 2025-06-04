@@ -51,6 +51,6 @@ jobs:
           username: ${{secrets.SSH_USER}}
           script: |
             cd devops
-            git pull
-            npm install && npm run build
-            pm2 restart all
+            docker rm -f devopscontainer
+            docker pull ghcr.io/yannisouraghi/devops/devops:latest
+            docker run -d -p 3000:3000 --name devopscontainer ghcr.io/yannisouraghi/devops/devops:latest 
